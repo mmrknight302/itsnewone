@@ -1,0 +1,66 @@
+
+{
+  "log": {
+    "loglevel": "none"
+  },
+  "dns": {
+    "servers": ["8.8.8.8"],
+    "queryStrategy": "UseIP",
+    "disableCache": true,
+    "disableFallback": true
+  },
+  "inbounds": [
+    {
+      "port": 3000,
+      "listen": "0.0.0.0",
+      "protocol": "vless", 
+      "settings": {
+        "clients": [
+          {
+            "id": "5c9b6087-f955-4506-9c1d-67a5aae44bc9",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "none",
+        "xhttpSettings": {
+          "path": "/Join-bede-Raiv2mmr",
+          "host": "",
+          "headers": {
+            "Cache-Control": "no-cache"
+          },
+          "extra": {
+            "noGRPCHeader": true,
+            "noServerName": true,
+            "concurrency": 1
+          }
+        }
+      },
+      "sniffing": {
+        "enabled": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "AsIs"
+      }
+    }
+  ],
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 1,
+        "connIdle": 15,
+        "uplinkOnly": 0,
+        "downlinkOnly": 0,
+        "bufferSize": 0
+      }
+    }
+  }
+}
